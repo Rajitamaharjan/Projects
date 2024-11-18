@@ -1,0 +1,72 @@
+SQL> SELECT v.VendorID, v.VendorName, COUNT(p.ProductID) AS TotalProductsSupplied
+  2  FROM Vendor v
+  3  JOIN Product p ON v.VendorID = p.VendorID
+  4  GROUP BY v.VendorID, v.VendorName
+  5  HAVING COUNT(p.ProductID) > 1;
+SQL> SELECT * FROM Vendor;
+         1                                                                                                                                                                                              
+Apple Inc.                                                                                                                                                                                              
+                                                                                                                                                                                                        
+         2                                                                                                                                                                                              
+Samsung Electronics                                                                                                                                                                                     
+                                                                                                                                                                                                        
+         3                                                                                                                                                                                              
+Sony Corporation                                                                                                                                                                                        
+                                                                                                                                                                                                        
+         4                                                                                                                                                                                              
+Microsoft Corporation                                                                                                                                                                                   
+                                                                                                                                                                                                        
+         5                                                                                                                                                                                              
+LG Electronics                                                                                                                                                                                          
+                                                                                                                                                                                                        
+         6                                                                                                                                                                                              
+Dell Technologies                                                                                                                                                                                       
+                                                                                                                                                                                                        
+         7                                                                                                                                                                                              
+Hew-Packard Company                                                                                                                                                                                     
+                                                                                                                                                                                                        
+SQL> SELECT * FROM Product;
+       101                                                                                                                                                                                              
+MacBook Air                                                                                                                                                                                             
+Thin and light laptop                                                                                                                                                                                   
+         1    1299.99         15          1                                                                                                                                                             
+                                                                                                                                                                                                        
+       102                                                                                                                                                                                              
+Galaxy S21                                                                                                                                                                                              
+Flagship smartphone                                                                                                                                                                                     
+         2     899.99         20          2                                                                                                                                                             
+                                                                                                                                                                                                        
+       103                                                                                                                                                                                              
+Sony Xperia Tablet                                                                                                                                                                                      
+Premium Android tablet                                                                                                                                                                                  
+         3     699.99         15          3                                                                                                                                                             
+                                                                                                                                                                                                        
+       104                                                                                                                                                                                              
+Microsoft Surface Pro 7                                                                                                                                                                                 
+Versatile 2-in-1 laptop                                                                                                                                                                                 
+         1    1199.99         10          4                                                                                                                                                             
+                                                                                                                                                                                                        
+       105                                                                                                                                                                                              
+LG Tone Free Earbuds                                                                                                                                                                                    
+Wireless earbuds with UVnano                                                                                                                                                                            
+         5     149.99         30          5                                                                                                                                                             
+                                                                                                                                                                                                        
+       106                                                                                                                                                                                              
+Dell UltraSharp Monitor                                                                                                                                                                                 
+27-inch 4K HDR display                                                                                                                                                                                  
+         4     699.99          8          6                                                                                                                                                             
+                                                                                                                                                                                                        
+       107                                                                                                                                                                                              
+HP Spectre x360                                                                                                                                                                                         
+Premium convertible laptop                                                                                                                                                                              
+         1    1399.99         12          7                                                                                                                                                             
+                                                                                                                                                                                                        
+SQL> select p.VendorID, COUNT(*) AS ProductCount From Products p GROUP BY p.VendorID HAVING COUNT(*) > 3;
+select p.VendorID, COUNT(*) AS ProductCount From Products p GROUP BY p.VendorID HAVING COUNT(*) > 3
+                                                 *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> select p.VendorID, COUNT(*) AS ProductCount From Product p GROUP BY p.VendorID HAVING COUNT(*) > 3;
+SQL> spool off

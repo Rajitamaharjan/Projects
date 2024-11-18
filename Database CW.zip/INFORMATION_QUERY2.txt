@@ -1,0 +1,5 @@
+SQL> SELECT OrderTable.OrderID, OrderTable.OrderDate, Customer.CustomerName, Product.ProductName, OrderDetail.Quantity, OrderDetail.UnitPrice FROM OrderTable JOIN OrderDetail ON OrderTable.OrderID = OrderDetail.OrderID JOIN Product ON OrderDetail.ProductID = Product.ProductID JOIN Customer ON OrderTable.CustomerID = Customer.CustomerID WHERE Product.ProductID = 101   AND OrderTable.OrderDate BETWEEN TO_DATE('01-05-2023', 'DD-MM-YYYY') AND TO_DATE('28-05-2023', 'DD-MM-YYYY');
+
+no rows selected
+
+SQL> SPOOL OFF

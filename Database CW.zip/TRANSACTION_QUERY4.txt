@@ -1,0 +1,14 @@
+SQL> SELECT * FROM (SELECT p.ProductID, p.ProductName, COUNT(od.OrderID) AS Order_Count FROM Product p JOIN OrderDetail od ON p.ProductID = od.ProductID GROUP BY p.ProductID, p.ProductName ORDER BY Order_Count DESC) WHERE ROWNUM <= 3;
+       102                                                                                                                                                                                              
+Galaxy S21                                                                                                                                                                                              
+          1                                                                                                                                                                                             
+                                                                                                                                                                                                        
+       107                                                                                                                                                                                              
+HP Spectre x360                                                                                                                                                                                         
+          1                                                                                                                                                                                             
+                                                                                                                                                                                                        
+       104                                                                                                                                                                                              
+Microsoft Surface Pro 7                                                                                                                                                                                 
+          1                                                                                                                                                                                             
+                                                                                                                                                                                                        
+SQL> spool off

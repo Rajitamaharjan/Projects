@@ -1,0 +1,103 @@
+SQL> SELECT Customer.CustomerID, Customer.CustomerName, Customer.Adress, MAX(OrderTable.OrderDate) AS LatestOrderDate FROM Customer LEFT JOIN OrderTable ON Customer.CustomerID = OrderTable.CustomerID GROUP BY Customer.CustomerID, Customer.CustomerName, Customer.Adress ORDER BY LatestOrderDate DESC;
+
+CUSTOMERID                                                                      
+----------                                                                      
+CUSTOMERNAME                                                                    
+--------------------------------------------------------------------------------
+ADRESS                                                                          
+--------------------------------------------------------------------------------
+LATESTORD                                                                       
+---------                                                                       
+         7                                                                      
+Suhana Tandukar                                                                 
+Kathmandu                                                                       
+14-JUL-23                                                                       
+                                                                                
+
+CUSTOMERID                                                                      
+----------                                                                      
+CUSTOMERNAME                                                                    
+--------------------------------------------------------------------------------
+ADRESS                                                                          
+--------------------------------------------------------------------------------
+LATESTORD                                                                       
+---------                                                                       
+         6                                                                      
+Rajib Maharjan                                                                  
+Kirtipur                                                                        
+17-JUN-23                                                                       
+                                                                                
+
+CUSTOMERID                                                                      
+----------                                                                      
+CUSTOMERNAME                                                                    
+--------------------------------------------------------------------------------
+ADRESS                                                                          
+--------------------------------------------------------------------------------
+LATESTORD                                                                       
+---------                                                                       
+         5                                                                      
+Barsha Bhusal                                                                   
+Butwal                                                                          
+10-MAY-23                                                                       
+                                                                                
+
+CUSTOMERID                                                                      
+----------                                                                      
+CUSTOMERNAME                                                                    
+--------------------------------------------------------------------------------
+ADRESS                                                                          
+--------------------------------------------------------------------------------
+LATESTORD                                                                       
+---------                                                                       
+         4                                                                      
+Sarina Shrestha                                                                 
+Bhaktapur                                                                       
+05-APR-23                                                                       
+                                                                                
+
+CUSTOMERID                                                                      
+----------                                                                      
+CUSTOMERNAME                                                                    
+--------------------------------------------------------------------------------
+ADRESS                                                                          
+--------------------------------------------------------------------------------
+LATESTORD                                                                       
+---------                                                                       
+         3                                                                      
+Arshiya Khanal                                                                  
+Kathmandu                                                                       
+25-MAR-23                                                                       
+                                                                                
+
+CUSTOMERID                                                                      
+----------                                                                      
+CUSTOMERNAME                                                                    
+--------------------------------------------------------------------------------
+ADRESS                                                                          
+--------------------------------------------------------------------------------
+LATESTORD                                                                       
+---------                                                                       
+         2                                                                      
+Manank Jha                                                                      
+Pokhara                                                                         
+20-FEB-23                                                                       
+                                                                                
+
+CUSTOMERID                                                                      
+----------                                                                      
+CUSTOMERNAME                                                                    
+--------------------------------------------------------------------------------
+ADRESS                                                                          
+--------------------------------------------------------------------------------
+LATESTORD                                                                       
+---------                                                                       
+         1                                                                      
+Rajita Maharjan                                                                 
+Kathmandu                                                                       
+15-JAN-23                                                                       
+                                                                                
+
+7 rows selected.
+
+SQL> SPOOL OFF

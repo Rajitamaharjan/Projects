@@ -1,0 +1,30 @@
+SQL> SELECT TRUNC(OrderTable.OrderDate, 'MM') AS MonthYear,
+  2         SUM(OrderDetail.TotalAmount) AS TotalRevenue
+  3  FROM OrderTable
+  4  JOIN OrderDetail ON OrderTable.OrderID = OrderDetail.OrderID
+  5  GROUP BY TRUNC(OrderTable.OrderDate, 'MM')
+  6  ORDER BY TRUNC(OrderTable.OrderDate, 'MM');
+       SUM(OrderDetail.TotalAmount) AS TotalRevenue
+           *
+ERROR at line 2:
+ORA-00904: "ORDERDETAIL"."TOTALAMOUNT": invalid identifier 
+
+
+SQL> DESCRIBE OrderDetail;
+ Name                                                                                                              Null?    Type
+ ----------------------------------------------------------------------------------------------------------------- -------- ----------------------------------------------------------------------------
+ ORDERDETAILID                                                                                                     NOT NULL NUMBER(38)
+ ORDERID                                                                                                           NOT NULL NUMBER(38)
+ PRODUCTID                                                                                                         NOT NULL NUMBER(38)
+ QUANTITY                                                                                                          NOT NULL NUMBER(38)
+ UNITPRICE                                                                                                         NOT NULL NUMBER(10,2)
+
+SQL> SELECT TRUNC(OrderTable.OrderDate, 'MM') AS MonthYear, SUM(OrderDetail.QUANTITY * OrderDetail.UNITPRICE) AS TotalRevenue FROM OrderTable JOIN OrderDetail ON OrderTable.OrderID = OrderDetail.OrderID GROUP BY TRUNC(OrderTable.OrderDate, 'MM') ORDER BY TRUNC(OrderTable.OrderDate, 'MM');
+01-JAN-23      1299.99                                                                                                                                                                                  
+01-FEB-23      1799.98                                                                                                                                                                                  
+01-MAR-23      2099.97                                                                                                                                                                                  
+01-APR-23      1199.99                                                                                                                                                                                  
+01-MAY-23       299.98                                                                                                                                                                                  
+01-JUN-23      2099.97                                                                                                                                                                                  
+01-JUL-23      1399.99                                                                                                                                                                                  
+SQL> SPOOL OFF

@@ -1,0 +1,5 @@
+SQL> SELECT * FROM OrderDetail WHERE UNITPRICE >= (SELECT AVG(UNITPRICE) FROM OrderDetail);
+          201          1        101 ##########    1299.99                                                                                                                                               
+          204          4        104 ##########    1199.99                                                                                                                                               
+          207          7        107 ##########    1399.99                                                                                                                                               
+SQL> SPOOL OFF

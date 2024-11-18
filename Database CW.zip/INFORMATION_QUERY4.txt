@@ -1,0 +1,19 @@
+SQL> SELECT * FROM Product WHERE ProductName LIKE '_a%' AND StockQuantity > 50;
+SELECT * FROM Product WHERE ProductName LIKE '_a%' AND StockQuantity > 50
+                                                       *
+ERROR at line 1:
+ORA-00904: "STOCKQUANTITY": invalid identifier 
+
+
+SQL> SELECT * FROM Product WHERE ProductName LIKE '_a%' AND Quantity > 50;
+SELECT * FROM Product WHERE ProductName LIKE '_a%' AND Quantity > 50
+                                                       *
+ERROR at line 1:
+ORA-00904: "QUANTITY": invalid identifier 
+
+
+SQL> SELECT * FROM Product WHERE ProductName LIKE '_a%' AND StockLevel > 50;
+
+no rows selected
+
+SQL> SPOOL OFF

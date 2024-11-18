@@ -1,0 +1,37 @@
+SQL> SELECT c.CustomerID, c.CustomerName, COUNT(o.OrderID) AS OrdersCount, SUM(i.TotalAmount) AS TotalSpending FROM Customer c JOIN OrderTable o ON c.CustomerID = o.CustomerID JOIN Invoice i ON o.OrderID = i.OrderID WHERE TO_CHAR(o.OrderDate, 'MM') = '08' GROUP BY c.CustomerID, c.CustomerName ORDER BY OrdersCount DESC FETCH FIRST 1 ROW ONLY;
+SELECT c.CustomerID, c.CustomerName, COUNT(o.OrderID) AS OrdersCount, SUM(i.TotalAmount) AS TotalSpending FROM Customer c JOIN OrderTable o ON c.CustomerID = o.CustomerID JOIN Invoice i ON o.OrderID = i.OrderID WHERE TO_CHAR(o.OrderDate, 'MM') = '08' GROUP BY c.CustomerID, c.CustomerName ORDER BY OrdersCount DESC FETCH FIRST 1 ROW ONLY
+                                                                                                                                                                                                                                                                                                                           *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> SELECT c.CustomerID, c.CustomerName, COUNT(o.OrderID) AS OrdersCount, SUM(i.TotalAmount) AS TotalSpending FROM Customer c JOIN OrderTable o ON c.CustomerID = o.CustomerID JOIN Invoice i ON o.OrderID = i.OrderID WHERE TO_CHAR(o.OrderDate, 'MM') = '08' GROUP BY c.CustomerID, c.CustomerName ORDER BY OrdersCount DESC FETCH FIRST 1 ROW ONLY;
+SELECT c.CustomerID, c.CustomerName, COUNT(o.OrderID) AS OrdersCount, SUM(i.TotalAmount) AS TotalSpending FROM Customer c JOIN OrderTable o ON c.CustomerID = o.CustomerID JOIN Invoice i ON o.OrderID = i.OrderID WHERE TO_CHAR(o.OrderDate, 'MM') = '08' GROUP BY c.CustomerID, c.CustomerName ORDER BY OrdersCount DESC FETCH FIRST 1 ROW ONLY
+                                                                                                                                                                                                                                                                                                                           *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> SELECT c.CustomerID, c.CustomerName, COUNT(o.OrderID) AS OrdersCount, SUM(i.TotalAmount) AS TotalSpending FROM Customer c JOIN OrderTable o ON c.CustomerID = o.CustomerID JOIN Invoice i ON o.OrderID = i.OrderID WHERE TO_CHAR(o.OrderDate, 'MM') = '08' GROUP BY c.CustomerID, c.CustomerName ORDER BY OrdersCount DESC FETCH FIRST 1 ROW ONLY;
+SELECT c.CustomerID, c.CustomerName, COUNT(o.OrderID) AS OrdersCount, SUM(i.TotalAmount) AS TotalSpending FROM Customer c JOIN OrderTable o ON c.CustomerID = o.CustomerID JOIN Invoice i ON o.OrderID = i.OrderID WHERE TO_CHAR(o.OrderDate, 'MM') = '08' GROUP BY c.CustomerID, c.CustomerName ORDER BY OrdersCount DESC FETCH FIRST 1 ROW ONLY
+                                                                                                                                                                                                                                                                                                                           *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> SELECT c.CustomerID, c.CustomerName, COUNT(o.OrderID) AS OrdersCount, SUM(i.TotalAmount) AS TotalSpending
+  2  FROM Customer c
+  3  JOIN OrderTable o ON c.CustomerID = o.CustomerID
+  4  JOIN Invoice i ON o.OrderID = i.OrderID
+  5  WHERE TO_CHAR(o.OrderDate, 'MM') = '08'
+  6  GROUP BY c.CustomerID, c.CustomerName
+  7  ORDER BY OrdersCount DESC
+  8  FETCH FIRST 1 ROW ONLY;
+FETCH FIRST 1 ROW ONLY
+*
+ERROR at line 8:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> SELECT * FROM (SELECT c.CustomerID, c.CustomerName, COUNT(o.OrderID) AS OrdersCount, SUM(i.TotalAmount) AS TotalSpending FROM Customer c JOIN OrderTable o ON c.CustomerID = o.CustomerID JOIN Invoice i ON o.OrderID = i.OrderID WHERE TO_CHAR(o.OrderDate, 'MM') = '08' GROUP BY c.CustomerID, c.CustomerName ORDER BY OrdersCount DESC) WHERE ROWNUM <= 1;
+SQL> spool off
